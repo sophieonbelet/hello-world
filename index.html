@@ -107,8 +107,9 @@
       unique propositions to customers that convinced them to switch brands.
     </div>
   </div>
-  <div class="container illustrator">
-    <!--<div class="wrapper">-->
+  <div class="background-grey">
+    <div class="container illustrator">
+      <!--<div class="wrapper">-->
       <div class="image-cropper">
         <img src="/images/profile-image.jpg" class="rounded" />
       </div>
@@ -118,9 +119,82 @@
       </div>
     </div>
   </div>
-  <div class="carousel">
-
+  </div>
+  <div class="container carousel">
+    <div id="carousel-selected">
+      <img src="/images/image-1.jpg" />
+      <p>“Life was like a box of chocolates. You never know what you’re gonna get”</p>
+    </div>
+    <div>
+      <div class="my-action" id="action2">
+        <img src="/images/image-2.jpg" />
+        <p>“Totally mathematical!”</p>
+      </div>
+      <div class="my-action">
+        <img src="/images/image-3.png" />
+        <p>“I’m nothing. I’m not even here”</p>
+      </div>
+      <div class="my-action">
+        <img src="/images/image-4.jpg" />
+        <p>“No matter how ﬁlthy something gets, you can always clean it right up”</p>
+      </div>
+    </div>
   </div>
 </body>
+<script type="text/javascript">
+  function myScript() {
+    console.log('nihao')
+  }
 
+  function init() {
+    console.log("init is loaded")
+    var selectedCarousel = document.getElementById('carousel-selected');
+    console.log(selectedCarousel.innerHTML)
+    var sCi= selectedCarousel.getElementsByTagName('img')[0];
+    var sCp = selectedCarousel.getElementsByTagName('p')[0];
+    var items = document.getElementsByClassName('my-action');
+    for( var i = 0; i < items.length; i++) {
+      items[i].addEventListener("click", function(e){
+
+        console.log(e)
+      this.parentNode.insertBefore(this,selectedCarousel);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // var newImg = document.createElement('img');
+        // var img = this.getElementsByTagName('img')[0];
+        // newImg.src = img.src;
+
+        // if(img != null)
+        // this.getElementsByTagName('img')[0].src = sCi.src;
+        
+        // var clickedP = this.getElementsByTagName('p')[0];
+        // var newP = document.createElement('p');
+        // newP.textContent = clickedP.textContent;
+        // if(clickedP != null) {
+        //   clickedP.textContent = sCp.textContent;
+        // }
+
+        // // clear selected and insert html from click
+        // selectedCarousel.innerHTML = "";
+        // selectedCarousel.appendChild(newImg);
+        // selectedCarousel.appendChild(newP);
+
+      })
+    }
+  }
+  init();
+</script>
 </html>
