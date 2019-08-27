@@ -1,3 +1,4 @@
+/* Load in external resources */
 @font-face {
     font-family: "Montserrat";
     src: url("/fonts/Montserrat/Montserrat-Regular.ttf");
@@ -7,168 +8,175 @@
     font-family: "Crimson Text";
     src: url("/fonts/Crimson_Text/CrimsonText-Regular.ttf");
 }
-
-.container {
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* flex-wrap: wrap; */
-    width: 60%; 
-    margin: 0% auto;
-
-  }
+/* -------------------- */
 
 
-#header {
-    width: 100%;
-    }
+/* Base styling */
+/* Order large to small: elements > classes > id */
+/* Text shoudl always be a stable size in px, em or rem (NO %) */
+/* Standard styling that should always look okay, so no text-align:center. padding/margin is okay */
+/* -------------------- */
 
-#intro {
-    font-size: 120%;
-}
-
-#quote {
-    /* position: relative; */
-    width: 50%;
-    margin: 20px 30px 20px -50px;
-    /* border: 3px; */
-    font-family: calibri;
-    font-size: 25px;
-    font-weight: bold;
-    float: left;
-}
-    
 body {
     font-family: Crimson Text;
-    text-align: left;
-    }
+}
 
 h1 {
-    font-size: 600%;
+    font-size: 48px;
     font-weight: 600;
     font-family: 'Montserrat';
-    text-align: center;
-    margin-block-end: 0.30em;
+    margin: 0 0 20px 0;
 }
 
 h2 {
     font-family: Crimson Text;
-    text-align: left;
-    font-size: 200%;
+    font-size: 36px;
     font-weight: normal;
+    margin: 0 0 20px 0;
 }
 
 h3 {
     font-family: Montserrat;
-    margin-bottom: 5px;
-    margin-top: 25px;
-   }
-
-
-
-.publish {
-    color:lightgrey;
-    text-align: left;
-     }
-
-.footnote {
-    font-size: 70%;
+    margin: 0 0 20px 0;
 }
-.background-grey {
-    background-color: #f2f2f2;
 
+img {
+    margin: 0 auto;
+    width: 100%;
 }
-.illustrator {
-    /* height: 200px; */
-    margin: 50px auto;
-    padding: 20px 0;
-    display: flex;
-    /* flex-shrink: 0.50; */
-    /* justify-content: center; */
-    align-items: center;
-    /* flex-flow: row nowrap;  */
-  }
+
+p {
+    margin: 0 0 20px 0;
+ }
 
 .wrapper {
-    margin: auto;
-    flex-grow: 0.5;
-    padding-left: 75px;
-      
+    margin: 30px 0;
 }
 
-.image-cropper {
+.wrapper.wrapper--no-space-top {
+    margin-top: 0;
+}
+
+.wrapper.wrapper--no-space-bottom {
+    margin-bottom: 0;
+}
+
+.wrapper.wrapper--grey {
+    background-color: #f2f2f2;
+}
+
+.container {
+    width: auto;
+    margin: 0 40px;      
+}
+
+/* Blocks, Elements, Modifiers */
+/* -------------------- */
+.container__float-left {
+    width: 100%;
+    float: none;
+    margin: 0;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.card {}
+
+.card--horizontal {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.card__text h3 {
+    margin: 0;
+}
+
+.card__text p {
+    margin: 0;
+}
+
+.card__image {
     width: 120px;
     height: 120px;
-    position: relative;
     overflow: hidden;
     border-radius: 50%;
     }
 
-.name {
+.card__text {
     /* height: 100px; */
     padding-left: 20px; 
-    flex-basis: 50%;
 }
 
-.name h3 {
-    margin-top: 0;
-}
-
-.name p {
-    margin: 0;
-}
-
-img {
-    /* display: inline; */
-    margin: 0 auto;
-    /* height: 100%; */
-    width: 100%;
-}
-
-.container.carousel {
-padding: 15px;
-box-shadow: 0 0 15px lightgrey;
-display: flex;
-}
-
-.container.carousel :nth-child(2) {
-    flex-basis: 50%;
+.carousel {
+    height: auto;
+    flex-direction: row;
     justify-content: space-around;
-    flex-direction: column;
+    padding: 30px;
+    box-shadow: 0 0 15px lightgrey;
     display: flex;
+    flex-wrap: wrap;
 }
 
-.container.carousel :nth-child(2) p {
+.carousel > .carousel__item:first-child  {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.carousel > .carousel__item:first-child p {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.carousel__item {
+    width: 30%;
+    cursor: pointer;
+}
+.carousel__item p {
     display: none;
-    /* visibility: hidden;
-    opacity: 0; */
 }
 
-@media (max-width: 480px) {
+#header {
+    width: 100%;
+    text-align: center;
+}
+
+.footnote {
+    font-size: 12px;
+}
+
+
+/* Media Queries */
+@media (min-width: 736px) {
     h1 {
-        font-size: 30px;
+        font-size: 90px;
     }
 
-    h2 {
-        font-family: Crimson Text;
-        text-align: left;
-        font-size: 150%;
-        font-weight: normal;
+    .container {
+        width: 700px; 
+        margin: 0 auto;
     }
 
-    .name {
-        height: 130px;
-        padding-left: 20px;
-        flex-basis: 50%;
+    .container__float-left {
+        width: 50%;
+        margin: 20px 30px 20px -50px;
+        float: left;
+    } 
+    .carousel {
+        flex-direction: column;
+        height: 500px;
+    }
+    .carousel > .carousel__item:first-child {
+        width: 63%;
+        height: 100%;
+        margin-bottom: 0;
     }
 
-    #quote {
-        border: 3px;
-        font-family: calibri;
-        font-size: 25px;
-        font-weight: bold;
-        width: 100%;
-        margin: -5px 0px 5px 0px;
+    .carousel__item {
+        width: 20%;
     }
-
-    
 }
+/* -------------------- */
