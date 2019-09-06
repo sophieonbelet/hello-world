@@ -70,6 +70,7 @@ p {
     margin: 0 40px;      
 }
 
+
 /* Blocks, Elements, Modifiers */
 /* -------------------- */
 .container__float-left {
@@ -80,7 +81,6 @@ p {
     font-weight: bold;
 }
 
-.card {}
 
 .card--horizontal {
     padding: 20px 0;
@@ -148,6 +148,29 @@ p {
     font-size: 12px;
 }
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+    }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: #fff;
+    color: black;
+    text-align: center;
+    border-radius: 7px;
+    box-shadow: 0 0 15px lightgrey;
+    padding: 5px;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
 
 /* Media Queries */
 @media (min-width: 736px) {
